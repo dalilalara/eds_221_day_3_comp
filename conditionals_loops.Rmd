@@ -1,0 +1,98 @@
+---
+title: "EDS 221 Day 3 Conditionals and Loops"
+author: "Dalila Lara"
+date: "2022-08-10"
+output: html_document
+---
+
+### Setting global options to not print warning & messages
+
+### The code chunk is running but the header states to not print code
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+
+library(tidyverse)
+```
+
+# `if` statements
+
+### Examples
+
+```{r}
+# making object
+burrito <- 2.4 
+
+# if burrito is greater than 2 print statement
+if (burrito > 2) {
+  print("I love burritos!")
+}
+```
+
+### String example 
+```{r}
+# Creating vector 
+my_ships <- c("Millenium Falcom", "X-wing", "Tie-Fighter", "Death Star")
+
+# does the object contain the pattern "r"
+str_detect(my_ships, pattern = "r")
+
+phrase <- "I love burritos!"
+
+if (str_detect(phrase, "love")) {
+  print("I am a burrito fanl")
+}
+```
+
+### Filtering data with filter,  Example of the %in% operator 
+```{r}
+# Starwars data
+# view(starwars)
+#Shortcut for pipe command + shift + m
+
+#Creating subset of data with pipe and filter function
+tatooine_characters <- starwars |> 
+  filter(homeworld == "Tatooine")
+
+# Use the %in% operator to check for multiple postitive matches
+tatooine_endor_naboo <- starwars |> 
+  filter(homeworld %in% c("Tatooine", "Naboo", "Endor"))
+
+# In words: Does the value in the home world variable for that row exsist IN that vector c("Tatooine", "Naboo", "Endor")
+```
+
+### `if-else` statement
+```{r}
+pika <- 50
+
+if(pika > 60) {
+  print("mega pika")
+} else {
+  print ("normal pika")
+}
+```
+
+### `if-else-else if` statement
+```{r}
+marmot <- 2.8
+
+if (marmot < 0.5) {
+  print("this is a small marmot")
+} else if (marmot >= 0.5 & marmot < 3) {
+  print("this is a medium marmot")
+} else {
+  print("this is a large marmot")
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
